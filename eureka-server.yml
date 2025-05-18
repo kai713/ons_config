@@ -2,15 +2,10 @@ server:
   port: 8070
 eureka:
   instance:
-    #Регистрировать IP-адрес службы
-    #вместо имени сервера
-    preferIpAddress: true
     hostname: localhost
   client:
-    # Регистрировать службу в Eureka
-    registerWithEureka: true
-    # Извлекать локальную копию реестра
-    fetchRegistry: true
+    registerWithEureka: false
+    fetchRegistry: false
     serviceUrl:
       defaultZone:
         http://${eureka.instance.hostname}:${server.port}/eureka/
