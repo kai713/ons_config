@@ -1,27 +1,18 @@
 server:
   port: 8070
 eureka:
-  # имя хоста, где размещается экземпляр
-  #службы Eureka;
   instance:
+    #Регистрировать IP-адрес службы
+    #вместо имени сервера
+    preferIpAddress: true
     hostname: localhost
   client:
-    #запрещает серверу Config
-    #Server регистрироваться в Eureka при запуске приложения
-    #Spring Boot Eureka;
-    registerWithEureka: false
-    # значение false запрещает службе
-    #Eureka кешировать информацию из реестра. Это значение
-    #следует изменить для служб Spring Boot, которые должны ре
-    #гистрироваться в Eureka;
-    fetchRegistry: false
+    # Регистрировать службу в Eureka
+    registerWithEureka: true
+    # Извлекать локальную копию реестра
+    fetchRegistry: true
     serviceUrl:
-      #URL службы для любого
-      #клиента. Это комбинация атрибутов eureka.instance.hostname
-      #и server.port;
       defaultZone:
-        http://${eureka.instance.hostname}:${server.port}/eureka/
+        http://localhost:8070/eureka/
   server:
-    #время ожидания перед
-    #тем, как сервер начнет принимать запросы.
     waitTimeInMsWhenSyncEmpty: 5
