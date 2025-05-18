@@ -5,7 +5,7 @@ eureka:
     #Регистрировать IP-адрес службы
     #вместо имени сервера
     preferIpAddress: true
-    hostname: eurekaserver
+    hostname: localbost
   client:
     # Регистрировать службу в Eureka
     registerWithEureka: true
